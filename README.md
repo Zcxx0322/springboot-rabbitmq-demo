@@ -20,7 +20,7 @@
     │   │       └── application.properties   <-- 应用程序配置文件
     └── pom.xml                 <-- Maven项目配置文件
 ## 特性
-- 使用SpringBoot集成 RabbitMQ发送和接收消息
+- 使用SpringBoot集成RabbitMQ发送和接收消息
 - 将消息内容格式化为JSON
 
 ## 环境要求
