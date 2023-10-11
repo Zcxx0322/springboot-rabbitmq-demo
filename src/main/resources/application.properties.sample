@@ -1,0 +1,7 @@
+spring.rabbitmq.host=localhost
+spring.rabbitmq.producer.id=num1
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=admin
+spring.rabbitmq.password=123456
+spring.rabbitmq.producer.queue=test123
+spring.rabbitmq.consumer.queue=${spring.rabbitmq.producer.queue}
