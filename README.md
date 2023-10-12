@@ -10,6 +10,8 @@
     │   │   │   └── com/
     │   │   │       └── oven/
     │   │   │           ├── Application.java     <-- Spring Boot应用程序入口
+    │   │   │           ├── config/
+    │   │   │           │   └──RabbitMQConfig.java   <-- 创建队列类
     │   │   │           ├── controller/
     │   │   │           │   └── DemoController.java   <-- 控制器类
     │   │   │           ├── producer/
