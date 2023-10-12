@@ -49,8 +49,9 @@ $ curl -X POST http://localhost:8080/send?msg=HelloWorld
 {
   "producerId" : "num1",
   "message" : "HelloWorld",
-  "timestamp" : "Wed Oct 11 20:26:28 CST 2023",
-  "queue" : "test"
+  "timestamp" : "Thu Oct 12 09:59:29 CST 2023",
+  "queue" : "zcx",
+  "virtual-host" : "/test_vhost"
 }
 ```
 - SpringBoot端输出：
@@ -59,8 +60,9 @@ $ curl -X POST http://localhost:8080/send?msg=HelloWorld
 {
   "producerId" : "num1",
   "message" : "HelloWorld",
-  "timestamp" : "Wed Oct 11 20:26:28 CST 2023",
-  "queue" : "test"
+  "timestamp" : "Thu Oct 12 09:57:58 CST 2023",
+  "queue" : "zcx",
+  "virtual-host" : "/test_vhost"
 }
 ```
 

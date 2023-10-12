@@ -2,6 +2,7 @@ package com.oven.controller;
 
 import com.oven.producer.RabbitMQProducer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +17,18 @@ public class DemoController {
     @RequestMapping("/send")
     public String send(@RequestParam String msg) {
         String timestamp = new Date().toString();
-        String response = String.format("发送消息成功：\n{\n  \"producerId\" : \"%s\",\n  \"message\" : \"%s\",\n  \"timestamp\" : \"%s\",\n  \"queue\" : \"%s\"\n}\n",
-                producer.getProducerId(), msg, timestamp, producer.getDefaultQueue());
+        String response = String.format("发送消息成功：\n{\n  \"producerId\" : \"%s\",\n  \"message\" : \"%s\",\n  \"timestamp\" : \"%s\",\n  \"queue\" : \"%s\",\n  \"virtual-host\" : \"%s\"\n}\n",
+                producer.getProducerId(), msg, timestamp, producer.getDefaultQueue(), getVirtualHost());
 
         // 发送消息到RabbitMQ队列
         producer.send(msg);
 
         return response;
+    }
+    @Value("${spring.rabbitmq.virtual-host}")
+    private String virtualHost;
+
+    public String getVirtualHost() {
+        return virtualHost;
     }
 }

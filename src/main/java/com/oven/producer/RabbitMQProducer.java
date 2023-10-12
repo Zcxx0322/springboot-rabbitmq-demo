@@ -24,6 +24,9 @@ public class RabbitMQProducer {
     @Value("${spring.rabbitmq.producer.queue}")
     private String defaultQueue;
 
+    @Value("${spring.rabbitmq.virtual-host}") // 获取virtual-host配置
+    private String virtualHost;
+
     public void send(String message) {
         String timestamp = new Date().toString();
 
@@ -34,6 +37,7 @@ public class RabbitMQProducer {
             jsonNode.put("message", message);
             jsonNode.put("timestamp", timestamp);
             jsonNode.put("queue", defaultQueue);
+            jsonNode.put("virtual-host", virtualHost);
 
             String messageToSend = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
 
